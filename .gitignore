@@ -51,3 +51,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 obj/ioprp_img.c
+boot.bin
+bin/

@@ -9,6 +9,9 @@
 #include <fileio.h>
 #include <tamtypes.h>
 
+#ifndef COMMIT_HASH
+#define COMMIT_HASH "UNK"
+#endif
 
 #ifdef DEBUG
 #include <sio.h>
@@ -23,11 +26,12 @@ extern int size_loader_elf;
 extern u8 ioprp_img[];
 extern int size_ioprp_img;
 
+char COMMIT[] = "hash:"COMMIT_HASH;
 // Runs the target ELF using the embedded ELF loader
 int LoadELFFromFile(int argc, char *argv[]);
-
 int main()
 {
+    COMMIT[0]='h';//hash stays on program... asigning 'used' attribute gets ignored by compiler
     FlushCache(0);
     FlushCache(2);
     UART("Flushed Cache\n");

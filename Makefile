@@ -1,8 +1,10 @@
 # Default path
 BOOT_PATH ?= boot.elf
 
-EE_BIN = proverb_unc.elf
-EE_BIN_PKD = proverb.elf
+BINDIR ?= bin
+BINNAME ?= proverb
+EE_BIN = $(BINDIR)/$(BINNAME)_unc.elf
+EE_BIN_PKD = $(BINDIR)/$(BINNAME).elf
 BOOT_BIN = boot.bin
 
 EE_INCS = -I$(PS2SDK)/ee/include -I$(PS2SDK)/common/include -I$(PS2SDK)/sbv/include -Iinclude -I$(PS2SDK)/ports/include
@@ -12,6 +14,7 @@ ELF_FILES += loader.elf
 
 # C compiler flags
 EE_CFLAGS = -D_EE -Os -G0 -Wall -Werror -fdata-sections -ffunction-sections $(EE_INCS)
+EE_CFLAGS += -DCOMMIT_HASH=\"$(shell git rev-parse --short HEAD)\"
 EE_LDFLAGS += -Wl,-zmax-page-size=128 -Wl,--gc-sections -s
 
 IOPRP_BIN = ioprp.img
@@ -20,6 +23,10 @@ vpath %.irx $(PS2SDK)/iop/irx/
 
 ifneq ($(BOOT_PATH),LOADCONF)
  EE_CFLAGS += -DBOOT_PATH=\"$(BOOT_PATH)\"
+  $(info hardcoded boot path 'mc0:$(BOOT_PATH)')
+else
+  $(info configurable boot path enabled)
+  $(error feature not yet implemented)
 endif
 
 # Reduce binary size by using newlib-nano
@@ -37,7 +44,13 @@ EE_OBJS := $(EE_OBJS:%=$(EE_OBJS_DIR)%)
 
 .PHONY: all clean
 
-all: $(EE_BIN_PKD)
+all: $(BINDIR)/ $(EE_BIN_PKD)
+
+$(BINDIR)/:
+	mkdir -p $@
+
+encrypt: $(EE_BIN_PKD)
+	kelftool encrypt dongle $< $(BINDIR)/boot.bin --keys=arcade --apptype=7 --mgzone=0x03
 
 $(EE_BIN_PKD): $(EE_BIN)
 	ps2-packer $(EE_BIN) $(EE_BIN_PKD)

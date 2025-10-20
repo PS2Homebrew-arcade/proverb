@@ -4,7 +4,8 @@ Proverb is an alternative bootloader for Arcade PS2s (COH-H model series and the
 
 the idea behind this is to use proverb as a fixed `boot.bin` file, then have whatever program you want to boot first as a plain ELF wich you can update more comfortably.
 
-also, it could be used to reduce boot times on original security dongle's from games
+also, it could be used to reduce boot times on original security dongle's from games.  
+this bootloader is already smaller than the original, and you could also remove `mc0:IOPRP214A`
 
 
 ## Usage
