@@ -11,6 +11,15 @@ this bootloader is already smaller than the original, and you could also remove 
 ## Usage
 the program can be built to look for the elf file to run from a config file. but it can also be hardcoded, specified at compile time, like the psalm bootloader from sony
 
+## installation
+
+We cant give you fully functional files, you have to encrypt and bind these files by yourself, wich you can do by using kelftool to encrypt and then either donglebinder or the twinsign method to bind the update file to a security dongle
+
+### How to encrypt
+```cmd
+kelftool encrypt dongle INPUT_ELF OUTPUT_KELF --keys=arcade --apptype=7 --mgzone=0x03
+```
+
 ## FAQ
 
 - Why is it called Proverb?

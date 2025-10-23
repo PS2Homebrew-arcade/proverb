@@ -10,14 +10,18 @@ jobs:
 
       - name: Dependencies
         run: |
-          apk add make git zip
+          apk add make git zip jq
 
       - uses: actions/checkout@v4
       - run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git fetch --prune --unshallow
 
-      - name: Compile
+      - name: Clear bin directory
+        run: |
+          rm -rf bin/
+
+      - name: Compile generic
         run: |
           make clean all
 
@@ -28,7 +32,12 @@ jobs:
           name: PROVERB
           path: |
             bin/proverb.elf
-            bin/proverb_unc.elf
+
+      - name: Compile package for games
+        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+        run: |
+          chmod +x ./compile_generic_package.sh
+          ./compile_generic_package.sh
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         if: github.ref == 'refs/heads/main'
@@ -39,7 +48,7 @@ jobs:
           title: "Nightly build"
           files: |
             bin/proverb.elf
-            bin/proverb_unc.elf
+            proverb.zip
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         if: startsWith(github.ref, 'refs/tags/v')
@@ -48,4 +57,4 @@ jobs:
           draft: true
           files: |
             bin/proverb.elf
-            bin/proverb_unc.elf
+            proverb.zip

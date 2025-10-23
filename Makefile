@@ -55,6 +55,10 @@ encrypt: $(EE_BIN_PKD)
 $(EE_BIN_PKD): $(EE_BIN)
 	ps2-packer $(EE_BIN) $(EE_BIN_PKD)
 
+# NuKe Binary Unpacked
+nkbu:
+	rm -f $(EE_BIN)
+
 clean:
 	$(MAKE) -C loader clean
 	rm -rf $(EE_OBJS_DIR) $(EE_BIN) $(EE_BIN_RAW) $(OUT_DIR)

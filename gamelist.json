@@ -1,0 +1,224 @@
+{
+  "games": [
+    {
+      "title": "Ace Driver 3: Final Turn",
+      "boot": "NRALOAD",
+      "id": "acedriv3"
+    },
+    {
+      "title": "Battle Gear 3 (Ver.2.01A)",
+      "boot": "BGRLOAD",
+      "id": "batlgr3"
+    },
+    {
+      "title": "Battle Gear 3 (Ver.2.07J)",
+      "boot": "BGRLOAD",
+      "id": "batlgr37"
+    },
+    {
+      "title": "Battle Gear 3 (Ver.2.08J)",
+      "boot": "BGRLOAD",
+      "id": "batlgr38"
+    },
+    {
+      "title": "Battle Gear 3 Tuned (Ver.2.05J)",
+      "boot": "BGTLOAD",
+      "id": "batlgr3t"
+    },
+    {
+      "title": "Bloody Roar 3",
+      "boot": "BDRGAME",
+      "id": "bldyr3b"
+    },
+    {
+      "title": "Cobra: The Arcade",
+      "boot": "CBRLOAD",
+      "id": "cobrata"
+    },
+    {
+      "title": "Fate: Unlimited Codes",
+      "boot": "FTELOAD",
+      "id": "fateulc"
+    },
+    {
+      "title": "Capcom Fighting Jam",
+      "boot": "FJMLOAD",
+      "id": "fghtjam"
+    },
+    {
+      "title": "Mobile Suit Gundam - Gundam vs. Gundam",
+      "boot": "GDNLOAD",
+      "id": "gdvsgd"
+    },
+    {
+      "title": "Mobile Suit Gundam - Gundam vs. Gundam Next",
+      "boot": "GNXLOAD",
+      "id": "gdvsgdnx"
+    },
+    {
+      "title": "Mobile Suit Gundam SEED: O.M.N.I. vs Z.A.F.T",
+      "boot": "SEDLOAD",
+      "id": "gundzaft"
+    },
+    {
+      "title": "The iDOLM@STER/偶像大师",
+      "boot": "IDLLOAD",
+      "id": "idolm"
+    },
+    {
+      "title": "The iDOLM@STER/偶像大师 (Tower)",
+      "boot": "IDLLOAD",
+      "id": "idolmtower"
+    },
+    {
+      "title": "Kinnikuman Muscle Grand Prix",
+      "boot": "KINLOAD",
+      "id": "kinniku"
+    },
+    {
+      "title": "Moto GP",
+      "boot": "MGPLOAD",
+      "id": "motogp"
+    },
+    {
+      "title": "Pride GP 2003",
+      "boot": "FGTLOAD",
+      "id": "prdgp03"
+    },
+    {
+      "title": "Ridge Racer V: Arcade Battle",
+      "boot": "START",
+      "id": "rrvac"
+    },
+    {
+      "title": "Sengoku Basara X Cross",
+      "boot": "BASLOAD",
+      "id": "sbxc"
+    },
+    {
+      "title": "Smash Court Pro Tournament",
+      "boot": "SCPTLOAD",
+      "id": "scptour"
+    },
+    {
+      "title": "Soul Calibur 2",
+      "boot": "SCSLOAD",
+      "id": "soulclb2"
+    },
+    {
+      "title": "Soul Calibur 3",
+      "boot": "SC3LOAD",
+      "id": "soulclb3"
+    },
+    {
+      "title": "Super Dragon Ball Z",
+      "boot": "DBALOAD",
+      "id": "superdbz"
+    },
+    {
+      "title": "Taiko no Tatsujin 10",
+      "boot": "T10LOAD",
+      "id": "taiko10"
+    },
+    {
+      "title": "Taiko no Tatsujin 11",
+      "boot": "T11LOAD",
+      "id": "taiko11"
+    },
+    {
+      "title": "Taiko no Tatsujin 14",
+      "boot": "T14LOAD",
+      "id": "taiko14"
+    },
+    {
+      "title": "Taiko no Tatsujin 7",
+      "boot": "TA7LOAD",
+      "id": "taiko7"
+    },
+    {
+      "title": "Taiko no Tatsujin 8",
+      "boot": "TA8LOAD",
+      "id": "taiko8"
+    },
+    {
+      "title": "Taiko no Tatsujin 9",
+      "boot": "TA9LOAD",
+      "id": "taiko9"
+    },
+    {
+      "title": "Tekken 4",
+      "boot": "TK4LOAD",
+      "id": "tekken4"
+    },
+    {
+      "title": "Tekken 4 (TEF2 Ver. A)",
+      "boot": "TK4LOAD",
+      "id": "tekken4a"
+    },
+    {
+      "title": "Tekken 4 (TEF1 Ver. A)",
+      "boot": "TK4LOAD",
+      "id": "tekken4b"
+    },
+    {
+      "title": "Tekken 4 (TEF1 Ver. C)",
+      "boot": "TK4LOAD",
+      "id": "tekken4c"
+    },
+    {
+      "title": "Tekken 5.1",
+      "boot": "TK5LOAD",
+      "id": "tekken51"
+    },
+    {
+      "title": "Tekken 5: Dark Resurrection",
+      "boot": "T55LOAD",
+      "id": "tekken5d"
+    },
+    {
+      "title": "Time Crisis 3",
+      "boot": "TC3LOAD",
+      "id": "timecrs3"
+    },
+    {
+      "title": "Time Crisis 3 (TST2 Ver. A)",
+      "boot": "TC3LOAD",
+      "id": "timecrs3e"
+    },
+    {
+      "title": "Time Crisis 3 (TST3 Ver. A)",
+      "boot": "TC3LOAD",
+      "id": "timecrs3u"
+    },
+    {
+      "title": "Time Crisis 4",
+      "boot": "TC4LOAD",
+      "id": "timecrs4"
+    },
+    {
+      "title": "Vampire Night",
+      "boot": "VPNGAME",
+      "id": "vnight"
+    },
+    {
+      "title": "Wangan Midnight",
+      "boot": "WGNLOAD",
+      "id": "wanganmd"
+    },
+    {
+      "title": "Wangan Midnight R",
+      "boot": "AL3LOAD",
+      "id": "wanganmr"
+    },
+    {
+      "title": "Mobile Suit Z-Gundam: A.E.U.G. vs Titans",
+      "boot": "GDMLOAD",
+      "id": "zgundm"
+    },
+    {
+      "title": "Zoids Infinity",
+      "boot": "ZOILOAD",
+      "id": "zoidsinf"
+    }
+  ]
+}

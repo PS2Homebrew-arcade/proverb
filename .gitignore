@@ -53,3 +53,4 @@ dkms.conf
 obj/ioprp_img.c
 boot.bin
 bin/
+proverb.zip
