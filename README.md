@@ -25,3 +25,12 @@ kelftool encrypt dongle INPUT_ELF OUTPUT_KELF --keys=arcade --apptype=7 --mgzone
 - Why is it called Proverb?
 
 > Because the official sony bootloader was part of the sony "Psalm" library. and since Proverb is the first bible book after Psalm, I thought it was neat to use that as name.
+
+# usage examples
+[![Namco System 246 PROVERBS BOOTLOADER test](https://img.youtube.com/vi/CcfiiEYZP-g/0.jpg)](https://www.youtube.com/watch?v=CcfiiEYZP-g)
+
+this is a recording made by User Franco23444
+where we can see **Ridge Racer: Arcade Battle**
+
+with the original bootloader, the game took approximately 42 seconds to reach the video init stage.  
+while the Proverb bootloader allowed the same stage to be reached in 18 seconds
