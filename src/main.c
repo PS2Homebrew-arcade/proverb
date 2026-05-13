@@ -33,7 +33,7 @@ int LoadELFFromFile(int argc, char *argv[]);
 int main()
 {
     char *argv[2] = {
-        BOOT_PATH,
+        "mc0:" BOOT_PATH,
         DANGLE // only checked in soulcalibur2, if argv[1] != "DANGLE". boot enviroment is assumed and data is looked at developer flash rather than dongle
     };
 
