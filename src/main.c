@@ -26,12 +26,18 @@ extern int size_loader_elf;
 extern u8 ioprp_img[];
 extern int size_ioprp_img;
 
-char COMMIT[] = "hash:"COMMIT_HASH;
+char VERSTR[] = "$Proverb " SVER ", comm:"COMMIT_HASH;
+#define DANGLE "DANGLE"
 // Runs the target ELF using the embedded ELF loader
 int LoadELFFromFile(int argc, char *argv[]);
 int main()
 {
-    COMMIT[0]='h';//hash stays on program... asigning 'used' attribute gets ignored by compiler
+    char *argv[2] = {
+        BOOT_PATH,
+        DANGLE // only checked in soulcalibur2, if argv[1] != "DANGLE". boot enviroment is assumed and data is looked at developer flash rather than dongle
+    };
+
+    VERSTR[0]='$';//hash stays on program... asigning 'used' attribute gets ignored by compiler
     FlushCache(0);
     FlushCache(2);
     UART("Flushed Cache\n");
@@ -50,21 +56,17 @@ int main()
     SifLoadStartModule("rom0:SIO2MAN", 0, NULL, NULL);
     UART("LOAD: DONGLEMAN\n");
     SifLoadStartModule("rom0:MCMAN", 0, NULL, NULL); //MCMAN: only mc0, MCMANO: Only mc1
-    char *argv[1] = {
-        "mc0:" BOOT_PATH,
-    };
 
     // Make sure the file exists on either mc0 or mc1
     int fd = fioOpen(argv[0], 0x0001 /*FIO_O_RDONLY*/);
     if (fd < 0) {
-        UART("FATAL: Doesnot exist '%s'\n", argv[0]);
+        UART("FATAL: cant open '%s' %s\n", argv[0], fd);
         return -1;
     }
-
-    UART("Exists: '%s'\n", argv[0]);
+    UART("Opened: '%s'\n", argv[0]);
     fioClose(fd);
 
-    LoadELFFromFile(1, argv);
+    LoadELFFromFile(2, argv);
     return -1;
     // here we just do nothing, if something went wrong, return from main() and let arcade OSDSYS do the error screen for us
 }

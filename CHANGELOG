@@ -1,0 +1,6 @@
+[1.0.1]
+- added elf execution argumment "DANGLE", needed for some games to recognize the dongle as boot media instead of developer flash
+- added new game entries
+- added versioning and included it on binary
+[1.0.0]
+- initial release

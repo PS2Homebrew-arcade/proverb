@@ -1,5 +1,11 @@
 # Default path
-BOOT_PATH ?= boot.elf
+BOOT_PATH ?= mc0:boot.elf
+
+MAJOR=1
+MINOR=0
+PATCH=1
+
+SVER=v$(MAJOR).$(MINOR).$(PATCH)
 
 BINDIR ?= bin
 BINNAME ?= proverb
@@ -14,7 +20,7 @@ ELF_FILES += loader.elf
 
 # C compiler flags
 EE_CFLAGS = -D_EE -Os -G0 -Wall -Werror -fdata-sections -ffunction-sections $(EE_INCS)
-EE_CFLAGS += -DCOMMIT_HASH=\"$(shell git rev-parse --short HEAD)\"
+EE_CFLAGS += -DCOMMIT_HASH=\"$(shell git rev-parse --short HEAD)\" -DSVER=\"$(SVER)\"
 EE_LDFLAGS += -Wl,-zmax-page-size=128 -Wl,--gc-sections -s
 
 IOPRP_BIN = ioprp.img
@@ -22,10 +28,8 @@ IOPRP_CONTENTS = fileio.irx
 vpath %.irx $(PS2SDK)/iop/irx/
 
 ifneq ($(BOOT_PATH),LOADCONF)
- EE_CFLAGS += -DBOOT_PATH=\"$(BOOT_PATH)\"
-  $(info hardcoded boot path 'mc0:$(BOOT_PATH)')
+  EE_CFLAGS += -DBOOT_PATH=\"$(BOOT_PATH)\"
 else
-  $(info configurable boot path enabled)
   $(error feature not yet implemented)
 endif
 
@@ -42,9 +46,13 @@ EE_OBJS += $(IOPRP_BIN:.img=_img.o)
 EE_OBJS += $(ELF_FILES:.elf=_elf.o)
 EE_OBJS := $(EE_OBJS:%=$(EE_OBJS_DIR)%)
 
-.PHONY: all clean
+.PHONY: all clean progver
 
 all: $(BINDIR)/ $(EE_BIN_PKD)
+	$(info boot path '$(BOOT_PATH)')
+
+progver:
+	@printf "%s" $(SVER)
 
 $(BINDIR)/:
 	mkdir -p $@
