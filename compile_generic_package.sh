@@ -1,8 +1,5 @@
-
 GAMELIST='gamelist.json'
 OUTPUT='proverb.zip'
-
-
 if ! command -v jq >/dev/null 2>&1
 then
     echo "jq could not be found"
@@ -27,4 +24,4 @@ for k in $(jq '.games | keys | .[]' $GAMELIST); do
     printf "GAME:%s\nEXECUTABLE:%s" "$TITLE" "$BOOT" >"bin/$ID/game.txt"
 done
 rm -f $OUTPUT
-zip -r $OUTPUT bin/* README.md LICENSE
+zip -r $OUTPUT bin/* README.md LICENSE CHANGELOG
