@@ -95,8 +95,8 @@ int main(int argc, char *argv[])
 
     if (ret == 0 && elfdata.epc != 0)
     {
-#ifdef SIMULATE_ACLOAD
-        if (argv[0][0] == 'm') argv[0][0] = 'a'; // some games decide they are on consumer hardware based on argv[1] being 'DANGLE'. others will expect boot device to be 'ac0'
+#ifndef NO_ACLOAD
+        argv[0][0] = 'a'; // some games decide they are on consumer hardware based on argv[1] being 'DANGLE'. others will expect boot device to be 'ac0'
 #endif
         // Execute the ELF
         FlushCache(0);

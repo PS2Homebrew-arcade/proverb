@@ -34,7 +34,7 @@ int main()
 {
     char *argv[2] = {
         "mc0:" BOOT_PATH,
-        DANGLE // only checked in soulcalibur2, if argv[1] != "DANGLE". boot enviroment is assumed and data is looked at developer flash rather than dongle
+        DANGLE // on some games if argv[1] != "DANGLE". boot enviroment is assumed and data is looked at developer flash rather than dongle
     };
 
     VERSTR[0]='$';//hash stays on program... asigning 'used' attribute gets ignored by compiler
