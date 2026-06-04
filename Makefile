@@ -68,7 +68,7 @@ encrypt: $(EE_BIN_PKD)
 	kelftool encrypt dongle $< $(BINDIR)/boot.bin --keys=arcade --apptype=7 --mgzone=0x03
 
 $(EE_BIN_PKD): $(EE_BIN)
-	ps2-packer $(EE_BIN) $(EE_BIN_PKD)
+	@ps2-packer $(EE_BIN) $(EE_BIN_PKD) | grep "File compressed,"
 
 # NuKe Binary Unpacked
 nkbu:
