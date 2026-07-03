@@ -5,7 +5,7 @@ import subprocess
 import urllib.request
 import yaml
 
-YAML_URL = "https://raw.githubusercontent.com/PS2Homebrew-arcade/pcsx2x6/devel/bin/resources/GameIndex.yaml"
+YAML_URL = "https://raw.githubusercontent.com/PS2Homebrew-arcade/pcsx2x6/master/bin/resources/GameIndex.yaml"
 
 with urllib.request.urlopen(YAML_URL) as response:
     games = yaml.safe_load(response.read().decode("utf-8"))
