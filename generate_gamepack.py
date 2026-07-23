@@ -28,6 +28,7 @@ for game_id, data in games.items():
            "nkbu",
            f"BOOT_PATH={boot}",
            f"BINDIR={bindir}",
+           f"BINNAME=boot",
        ],
        check=True,
     )
